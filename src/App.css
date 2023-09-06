@@ -1,19 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap');
+
 
 * {margin: 0; padding: 0;}
 ul, li {list-style: none;}
 a {text-decoration: none; font-size: 10px; color: #555;}
 html {font-size: 10px; height: 100%;}
-body {background: #000; font-family: 'Open Sans', sans-serif;}
+body {background: #000; font-family: 'Noto Sans KR', sans-serif;}
 
-.header {position: fixed; z-index: 9000; top: 0; left: 0; right: 0; width: 100%; box-sizing: border-box;}
+.header {position: fixed; z-index: 9000; top: 0; left: 0; right: 0; width: 100%; box-sizing: border-box; background: rgba(0, 0, 0, 0.1); font-family: 'Open Sans', sans-serif;}
 .header .header_inner {display: flex; justify-content: space-between; align-items: center; padding: 0px 7rem 0px; height: 9rem; box-sizing: border-box;}
 .header .header_inner .logo {height: 5rem;}
 .header .header_inner .logo img {height: 100%;}
 .header .header_inner .gnb {display: flex; gap: 0 50px;}
 .header .header_inner .gnb li a {font-size: 2.1rem; color: #fff;}
 
-#smooth-content {height: 5000px; margin-top: 90px;}
+#smooth-content {height: 5000px;}
+
+/* 메인페이지 Home */
+.section {position: relative; width: 100%; height: 100vh;}
+.section > video {height: 100%;}
+.section > .main_txt {position: absolute; top: 50%; left: 50%; font-size: 6rem; transform: translate(-50%, -50%);
+  -webkit-animation: text-focus-in1 3.8s infinite cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: text-focus-in1 3.8s infinite cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes text-focus-in1 {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  30% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+  80% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-filter: blur(20px);
+            filter: blur(20px);
+    opacity: 0;
+  }
+}
+@keyframes text-focus-in1 {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  30% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+  80% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-filter: blur(20px);
+            filter: blur(20px);
+    opacity: 0;
+  }
+}
+
 
 .box {
   width: 50px; 

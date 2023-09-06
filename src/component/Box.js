@@ -27,7 +27,6 @@ export default function Box() {
 
     return(
         <div>
-            <h2>react-gsap Animation</h2>
             <div className="wrap">
                 <div className='box' >
 

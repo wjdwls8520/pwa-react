@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './App.css';
 import Box from './component/Box';
 import { gsap } from 'gsap-trial';
@@ -43,6 +43,30 @@ function App() {
     return () => ctx.revert();
   }, []);
 
+  
+  let arrText= ['사람과 사람의 연결', '상상과 현실을 잇는', '디지털 플랫폼 건축가', 'KVR 인터랙티브 입니다.' ];
+  let [mainText, setMainText] = useState(arrText[0])
+
+  let i = 0;
+  useEffect(()=> {
+    setInterval(function(){
+      if(i<4){
+        setMainText(arrText[i]);
+        i++;
+      }else if(i == 4) {
+        // clearInterval(timer)
+        i=0;
+        if(i<4) {
+          setMainText(arrText[i]);
+           i++;
+        }
+      }
+    }, 3800)
+   
+  }, [])
+
+  
+
   return (
     <div className="App">
         {/* 헤더 */}
@@ -69,14 +93,20 @@ function App() {
         </header>
 
         <div id="smooth-wrapper" ref={main}>
-            <div id="smooth-content">
+          <div id="smooth-content">
 
                 {/* 메인페이지 */}
                 <Routes>
                     <Route path="/" element={
-                        // <Box data-speed="1.5"></Box>
                         <section className='section section--main'>
-                          
+                            <video autoPlay playsInline loop muted>
+                                <source src={`${process.env.PUBLIC_URL}/video/main.mp4`} type="video/mp4" />
+                                Sorry, your browser doesn't support embedded videos.
+                            </video>
+                            <p className='main_txt'>
+                                {mainText}
+                            </p>
+                            {/* <Box data-speed="1.5"></Box> */}
                         </section>
                     } />
                 </Routes>
@@ -90,7 +120,7 @@ function App() {
                     } />
                 </Routes>
 
-            </div>
+          </div>
         </div>
     </div>
   );
