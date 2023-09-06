@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {margin: 0; padding: 0;}
+ul, li {list-style: none;}
+a {text-decoration: none; font-size: 10px; color: #555;}
+html {font-size: 10px; height: 100%;}
+body {background: #000; font-family: 'Open Sans', sans-serif;}
+
+.header {position: fixed; z-index: 9000; top: 0; left: 0; right: 0; width: 100%; box-sizing: border-box;}
+.header .header_inner {display: flex; justify-content: space-between; align-items: center; padding: 0px 7rem 0px; height: 9rem; box-sizing: border-box;}
+.header .header_inner .logo {height: 5rem;}
+.header .header_inner .logo img {height: 100%;}
+.header .header_inner .gnb {display: flex; gap: 0 50px;}
+.header .header_inner .gnb li a {font-size: 2.1rem; color: #fff;}
+
+#smooth-content {height: 5000px; margin-top: 90px;}
+
 .box {
   width: 50px; 
   height: 50px; 
   border-radius: 100%;
   background: #bf5160;
-  opacity: 0;
+  /* opacity: 0; */
 }

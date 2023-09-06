@@ -1,17 +1,37 @@
-import { Timeline, Tween } from "react-gsap";
+import { gsap } from 'gsap'
+import { useEffect, useRef } from 'react'
 
 export default function Box() {
+
+    // let boxREf = useRef();
+
+    // useEffect(()=> {
+        
+    //         let tl = gsap.timeline();
+    //         tl.from(boxREf.current, {
+    //             x: 200,
+    //             duration: 1,
+    //             ease: "bounce.out",
+    //         }); 
+    //         tl.to(boxREf.current, {
+    //             x: 0,
+    //             duration: 1.3,
+    //             scale: 1.5,
+    //             ease: "bounce.out",
+    //         });
+    //         tl.to(boxREf.current, {
+    //             scale: 1, 
+    //         });
+        
+    // }, [])
 
     return(
         <div>
             <h2>react-gsap Animation</h2>
             <div className="wrap">
-                <Timeline
-                    target={<div className="box"></div>}
-                >
-                    <Tween from={{ opacity: 0 }} to={{opacity: 1}} duration={1} />
-                    <Tween to={{ x: '200px' }} />
-                </Timeline>
+                <div className='box' >
+
+                </div>
             </div>
         </div>
     )
