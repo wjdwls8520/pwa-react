@@ -1,10 +1,11 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './App.css';
 import Box from './component/Box';
 import { gsap } from 'gsap-trial';
 import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
 import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
 import { Link, Route, Routes } from 'react-router-dom';
+import TimeText from './component/TimeText';
 
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother); 
@@ -21,21 +22,48 @@ function App() {
         effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
       });
 
-      // gsap.to(".box", {
-      //   scrollTrigger: {
-      //     trigger: ".wrap",
-      //     pin: true,  // 고정해줌
-      //     immediateRender: false, // frontTo 기능
-      //     start: "0 top",
-      //     end: "300 top",
-      //     markers: true,
-      //     scrub: true,
-      //     id: "1nd"
-      //   },
-      //   yPercent: 50,
-      //   scale: 3,
-      //   opacity: 1,
-      // });
+      gsap.to(".dim", {
+        scrollTrigger: {
+          trigger: ".section--2",
+          pin: true,  // 고정해줌
+          immediateRender: false, // fromtTo 기능
+          start: "center center",
+          end: "1200 center",
+          markers: true,
+          scrub: true,
+          id: "1nd"
+        },
+        yPercent: -100,
+        scale: 1,
+        // opacity: 0,
+      });
+      gsap.to(".fixed_level", {
+        scrollTrigger: {
+          trigger: ".section--2",
+          // pin: true,  // 고정해줌
+          immediateRender: false, // fromtTo 기능
+          start: "center-=100px center",
+          end: "1000 center",
+          markers: true,
+          scrub: true,
+          id: "fixed"
+        },
+        opacity: 1,
+      });
+      gsap.to(".fixed_txt > p", {
+        scrollTrigger: {
+          trigger: ".section--2",
+          // pin: true,  // 고정해줌
+          immediateRender: false, // fromtTo 기능
+          start: "center center",
+          end: "1200 center",
+          markers: true,
+          scrub: true,
+          id: "fixed--txt"
+        },
+        scale: 1,
+        opacity: 1,
+      });
 
 
     }, main);
@@ -43,29 +71,6 @@ function App() {
     return () => ctx.revert();
   }, []);
 
-  
-  let arrText= ['사람과 사람의 연결', '상상과 현실을 잇는', '디지털 플랫폼 건축가', 'KVR 인터랙티브 입니다.' ];
-  let [mainText, setMainText] = useState(arrText[0])
-
-  let i = 0;
-  useEffect(()=> {
-    setInterval(function(){
-      if(i<4){
-        setMainText(arrText[i]);
-        i++;
-      }else if(i == 4) {
-        // clearInterval(timer)
-        i=0;
-        if(i<4) {
-          setMainText(arrText[i]);
-           i++;
-        }
-      }
-    }, 3800)
-   
-  }, [])
-
-  
 
   return (
     <div className="App">
@@ -98,16 +103,28 @@ function App() {
                 {/* 메인페이지 */}
                 <Routes>
                     <Route path="/" element={
-                        <section className='section section--main'>
-                            <video autoPlay playsInline loop muted>
-                                <source src={`${process.env.PUBLIC_URL}/video/main.mp4`} type="video/mp4" />
-                                Sorry, your browser doesn't support embedded videos.
-                            </video>
-                            <p className='main_txt'>
-                                {mainText}
-                            </p>
-                            {/* <Box data-speed="1.5"></Box> */}
-                        </section>
+                      <>
+                          <section className='section section--main'>
+                              <video autoPlay playsInline loop muted>
+                                  <source src={`${process.env.PUBLIC_URL}/video/main.mp4`} type="video/mp4" />
+                                  Sorry, your browser doesn't support embedded videos.
+                              </video>
+                              <TimeText />
+                              {/* <Box data-speed="1.5"></Box> */}
+                          </section>
+                          <section className='section section--2'>
+                              <div className='dim'></div>
+                              <div className='fixed_level'>
+                                  <img src={`${process.env.PUBLIC_URL}/images/biglogo.png`} alt='biglogo' /> 
+                              </div>
+                              <div className='fixed_txt'>
+                                  <p>KVR interactive</p>
+                              </div>
+                          </section>
+                          <section className='section section--3'>
+
+                          </section>
+                      </>
                     } />
                 </Routes>
 
