@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import './App.css';
 import Box from './component/Box';
 import { gsap } from 'gsap';
-// import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link, Route, Routes } from 'react-router-dom';
 import TimeText from './component/TimeText';
