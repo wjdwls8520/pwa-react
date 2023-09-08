@@ -1,27 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import './App.css';
 import Box from './component/Box';
-import { gsap } from 'gsap-trial';
-import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
-import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
+import { gsap } from 'gsap';
+// import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link, Route, Routes } from 'react-router-dom';
 import TimeText from './component/TimeText';
 
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother); 
+gsap.registerPlugin(ScrollTrigger); 
 
 function App() {
 
   const main = useRef();
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // create the smooth scroller FIRST!
-      ScrollSmoother.create({
-        smooth: 1.5, // seconds it takes to "catch up" to native scroll position
-        effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
-      });
-
       // 빅로고
       gsap.to(".dim", {
         scrollTrigger: {
@@ -69,57 +62,57 @@ function App() {
         scrollTrigger: {
           trigger: ".text_contents1",
           immediateRender: false,
-          start: "-300 center",
+          start: "-500 center",
           end: "center center",
-          markers: true,
+          markers: false,
           scrub: true,
           id: "1"
         },
-        scale: 0.2,
-        xPercent: 50,
-        opacity: 0.7,
+        scale: 0.4,
+        xPercent: 30,
+        opacity: 0,
       });
       gsap.from(".text_contents2", {
         scrollTrigger: {
           trigger: ".text_contents2",
           immediateRender: false,
-          start: "-300 center",
+          start: "-500 center",
           end: "center center",
-          markers: true,
+          markers: false,
           scrub: true,
           id: "2"
         },
-        scale: 0.2,
-        xPercent: -100,
-        opacity: 0.7,
+        scale: 0.4,
+        xPercent: -50,
+        opacity: 0,
       });
       gsap.from(".text_contents3", {
         scrollTrigger: {
           trigger: ".text_contents4",
           immediateRender: false,
-          start: "-400 center",
+          start: "-600 center",
           end: "center center",
-          markers: true,
+          markers: false,
           scrub: true,
           id: "3"
         },
         scale: 0.4,
-        xPercent: 50,
+        xPercent: 30,
         yPercent: -50,
-        opacity: 1,
+        opacity: 0,
       });
       gsap.from(".text_contents4", {
         scrollTrigger: {
           trigger: ".text_contents4",
           immediateRender: false,
-          start: "-400 center",
+          start: "-600 center",
           end: "center center",
-          markers: true,
+          markers: false,
           scrub: true,
           id: "4"
         },
         scale: 0.1,
-        xPercent: -100,
+        xPercent: -30,
         yPercent: 100,
         opacity: 0,
       });
@@ -136,12 +129,7 @@ function App() {
         opacity : 1,
         width: "100%"
       });
-      
 
-
-    }, main);
-    
-    return () => ctx.revert();
   }, []);
 
 
@@ -170,7 +158,7 @@ function App() {
             </div>
         </header>
 
-        <div id="smooth-wrapper" ref={main}>
+        <div id="smooth-wrapper">
           <div id="smooth-content">
 
                 {/* 메인페이지 */}
@@ -207,6 +195,7 @@ function App() {
                               <span className='text_contents text_contents2'>
                                 <span className='big bold'>온라인 전시</span>
                                 <span className='tiny'>와 </span> 
+                                <br className='m-br' />
                                 <span className='big bold'>메타버스 플랫폼 </span>
                                 <span className='tiny'>을 </span>
                                 {/* <br /> */}
@@ -223,8 +212,15 @@ function App() {
                                   가치있는 서비스
                                   <span className='line--bar'></span>
                                 </span>
-                                <span className='tiny'>를 만들어 나가고 있습니다.</span>
+                                <span className='tiny'>를 
+                                  만들어 나가고 있습니다.
+                                </span>
                               </span>
+                          </section>
+                          <section className='section section--4'>
+                              {/* <div className=''>
+
+                              </div> */}
                           </section>
                       </>
                     } />
@@ -234,7 +230,11 @@ function App() {
                 <Routes>
                     <Route path="/about" element={
                       <>
-                        <a>안녕하세요</a>
+                        <p>안녕하세요</p>
+                        <p>안녕하세요</p>
+                        <p>안녕하세요</p>
+                        <p>안녕하세요</p>
+                        <p>안녕하세요</p>
                       </>
                     } />
                 </Routes>

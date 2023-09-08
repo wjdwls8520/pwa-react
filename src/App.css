@@ -10,7 +10,7 @@ html {font-size: 10px; height: 100%;}
 body {background: #000; font-family: 'Noto Sans KR', sans-serif;}
 
 .bold {font-weight: 700;}
-
+.m-br {display: none;}
 
 .header {position: fixed; z-index: 9000; top: 0; left: 0; right: 0; width: 100%; box-sizing: border-box; background: rgba(0, 0, 0, 0.1); font-family: 'Open Sans', sans-serif;}
 .header .header_inner {display: flex; justify-content: space-between; align-items: center; padding: 0px 7rem 0px; height: 9rem; box-sizing: border-box;}
@@ -25,7 +25,7 @@ body {background: #000; font-family: 'Noto Sans KR', sans-serif;}
 .section {position: relative; width: 100%;}
 .section--main {height: 100vh;}
 .section > video {width: 100%; height: 100%; object-fit: cover;}
-.section > .main_txt {position: absolute; top: 50%; left: 50%; padding: 6px 20px; box-sizing: border-box; background: #0000007c; border-radius: 10px; font-size: 4.5rem; color:#fff; transform: translate(-50%, -50%);
+.section > .main_txt {position: absolute; top: 50%; left: 50%; padding: 6px 20px; box-sizing: border-box; background: #0000007c; border-radius: 10px; font-size: 4.5rem; color:#fff; white-space: nowrap; transform: translate(-50%, -50%);
   -webkit-animation: text-focus-in1 3.8s infinite cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   animation: text-focus-in1 3.8s infinite cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
@@ -83,12 +83,12 @@ body {background: #000; font-family: 'Noto Sans KR', sans-serif;}
 .section--2 .fixed_txt p {margin: 0 auto; letter-spacing: 1rem; font-size: 12rem; color: #fff; opacity: 0; transform: scale(0.4);}
 
 .section--3 {height: 2780px; background: url(../public/images/bg.png); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;}
-.section--3 .text_contents {display: inline-block; position: absolute; margin: 0 auto; width: 100%; max-width: 500px; line-height: 7.5rem; font-size: 7rem; font-weight: 300; word-break: keep-all;}
+.section--3 .text_contents {display: inline-block; position: absolute; margin: 0 auto; max-width: 1200px; line-height: 7.5rem; font-size: 7rem; font-weight: 300; word-break: keep-all; white-space: nowrap;}
 .section--3 .text_contents .tiny {font-size: 4rem;}
 .section--3 .text_contents1 {top: 350px; left: 50%; transform: translateX(-50%); text-align: right;}
-.section--3 .text_contents2 {top: 1100px; right: 50%; transform: translateX(50%); text-align: left;}
-.section--3 .text_contents3 {top: 1900px; left: 50%; transform: translateX(-50%); text-align: center;}
-.section--3 .text_contents4 {top: 2000px; right: 50%; transform: translateX(50%); text-align: center;}
+.section--3 .text_contents2 {top: 1300px; right: 50%; transform: translateX(50%); text-align: left;}
+.section--3 .text_contents3 {top: 2100px; left: 50%; transform: translateX(-50%); text-align: center;}
+.section--3 .text_contents4 {top: 2200px; right: 50%; transform: translateX(50%); text-align: center;}
 .section--3 .text_contents4 > .line {position: relative;}
 .section--3 .text_contents4 > .line > .line--bar {position: absolute; right: 0; bottom: 6px; width: 0%; height: 2px; background: #fff; border-radius: 20px; opacity: 0.8;}
 
@@ -110,7 +110,24 @@ body {background: #000; font-family: 'Noto Sans KR', sans-serif;}
 }
 
 @media screen and (max-width:768px){
+  .m-br {display: block;}
+
   html {font-size: 5px;}
   .header .header_inner {height: 11rem;}
   .header .header_inner .gnb li a {font-size: 3rem;}
+
+  .section--2 .fixed_txt p {font-size: 8rem;}
+
+  .section--3 .text_contents {max-width: 700px;}
+
+}
+
+@media screen and (max-width:468px){
+  .section > .main_txt {padding: 4px 14px; font-size: 3.5rem}
+  .section > .main_txt .big {font-size: 5.2rem;}
+
+  .section--2 .fixed_txt p {font-size: 6rem;} 
+
+  .section--3 .text_contents {line-height: 30px; font-size: 5rem;}
+  .section--3 .text_contents .tiny {font-size: 2rem;}
 }
