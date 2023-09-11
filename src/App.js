@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect} from 'react';
 import './App.css';
-import Box from './component/Box';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -10,8 +9,6 @@ import TimeText from './component/TimeText';
 gsap.registerPlugin(ScrollTrigger); 
 
 function App() {
-
-  const main = useRef();
 
   useEffect(() => {
       // 빅로고
