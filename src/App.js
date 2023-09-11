@@ -5,7 +5,6 @@ import Gsap from './component/Gsap';
 import Home from './router/Home';
 import About from './router/About';
 
-
 function App() {
 
   return (
