@@ -1,6 +1,7 @@
 import React, { useEffect} from 'react';
 import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
+import Gsap from './component/Gsap';
 import Home from './router/Home';
 import About from './router/About';
 
@@ -9,6 +10,8 @@ function App() {
 
   return (
     <div className="App">
+        <Gsap />
+
         {/* 헤더 */}
         <header className="header"> 
             <div className='header_inner'>
@@ -32,41 +35,40 @@ function App() {
             </div>
         </header>
 
-          {/* 메인페이지 */}
           <Routes>
-              <Route path="/" element={
-                <Home />
-              } />
+            {/* 메인페이지 */}
+            <Route path="/" element={
+              <Home />
+            } />
 
-              {/* about */}
-              <Route path="/about" element={
-                  <About />
-              } />
+            {/* about */}
+            <Route path="/about" element={
+                <About />
+            } />
 
-              {/* works */}
-              <Route path="/works" element={
-                <div className='wrap'>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                </div>
-              } />
+            {/* works */}
+            <Route path="/works" element={
+              <div className='wrap'>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+              </div>
+            } />
 
-              {/* contact */}
-              <Route path="/contact" element={
-                <div className='wrap'>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                  <p>안녕하세요</p>
-                </div>
-              } />
+            {/* contact */}
+            <Route path="/contact" element={
+              <div className='wrap'>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+                <p>안녕하세요</p>
+              </div>
+            } />
 
-              <Route path="*" element={<p>404</p>} />
-
+            <Route path="*" element={<p>404</p>} />
           </Routes>
 
 
