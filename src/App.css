@@ -19,8 +19,6 @@ body {background: #000; font-family: 'Noto Sans KR', sans-serif;}
 .header .header_inner .gnb {display: flex; gap: 0 5rem;}
 .header .header_inner .gnb li a {font-size: 2.1rem; font-weight: 700; color: #fff;}
 
-/* #smooth-content {height: 3600px;} */
-
 /* 메인페이지 Home */
 .section {position: relative; width: 100%;}
 .section--main {height: 100vh;}
