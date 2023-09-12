@@ -9,6 +9,7 @@ function App() {
 
   return (
     <div className="App">
+        <div id='pro-bar' />
         <Gsap />
 
         {/* 헤더 */}

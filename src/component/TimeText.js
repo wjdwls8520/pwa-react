@@ -11,22 +11,15 @@ export default function TimeText() {
     
       let [mainText, setMainText] = useState(htmlTag[0])
       
-      let i = 0;
       useEffect(()=> {
+        let count = 0;
         setInterval(function(){
-          if(i<4){
-            setMainText(htmlTag[i]);
-            i++;
-          }else if(i == 4) {
-            // clearInterval(timer)
-            i=0;
-            if(i<4) {
-              setMainText(htmlTag[i]);
-               i++;
-            }
+          count ++ 
+          if( count == 4) {
+            count = 0
           }
+          setMainText(htmlTag[count]);
         }, 3800)
-       
       }, [])
 
     return(

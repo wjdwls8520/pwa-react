@@ -1,0 +1,2 @@
+npm insatll -g serve
+npx serve -s build 
