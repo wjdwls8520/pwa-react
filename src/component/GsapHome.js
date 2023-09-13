@@ -2,32 +2,18 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect } from 'react';
 
-export default function Gsap() {
+export default function GsapHome() {
 
     useEffect(() => {
     
         gsap.registerPlugin(ScrollTrigger); 
 
         const gsapAnimation = gsap.context(() => {
-            // 프로그레시브바
-             gsap.to("#pro-bar", {
-                scrollTrigger: {
-                    trigger: ".app",
-                    pin: true,  // 고정해줌
-                    immediateRender: false, // fromtTo 기능 (되감기)
-                    start: "10 top",
-                    end: "bottom+=100 top",
-                    markers: true,
-                    scrub: 2,
-                    id: "1nd"
-                },
-                width: '100%',
-            });
-
+ 
             // 빅로고
             gsap.to(".dim", {
                 scrollTrigger: {
-                    trigger: ".section--2",
+                    trigger: ".home--2",
                     pin: true,  // 고정해줌
                     immediateRender: false, // fromtTo 기능 (되감기)
                     start: "center center",
@@ -41,7 +27,7 @@ export default function Gsap() {
             });
             gsap.to(".fixed_level", {
                 scrollTrigger: {
-                    trigger: ".section--2",
+                    trigger: ".home--2",
                     immediateRender: false, 
                     start: "center-=100px center",
                     end: "1000 center",
@@ -53,7 +39,7 @@ export default function Gsap() {
             });
             gsap.to(".fixed_txt > p", {
                 scrollTrigger: {
-                    trigger: ".section--2",
+                    trigger: ".home--2",
                     immediateRender: false,
                     start: "center center",
                     end: "1200 center",
@@ -66,15 +52,15 @@ export default function Gsap() {
             });
     
             // 텍스트컨텐츠
-            gsap.to(".section--3", {
+            gsap.to(".home--3", {
                 scrollTrigger: {
-                    trigger: ".section--3",
+                    trigger: ".home--3",
                     immediateRender: false,
                     start: "bottom-=200 center",
                     end: "bottom center",
                     markers: false,
                     scrub: 2,
-                    id: "section--3"
+                    id: "home--3"
                 },
                 opacity:0
             });
@@ -153,45 +139,81 @@ export default function Gsap() {
                 width: "100%"
             });
 
-
-            // video ct 
-            gsap.to(".ct_1", {
+            // 루프 텍스트
+            gsap.from(".ct_1 .top", {
                 scrollTrigger: {
-                    trigger: ".section--4",
+                    trigger: ".ct_1",
                     immediateRender: false,
-                    start: "top top",
-                    end: "1000 top",
+                    start: "top-=600 center",
+                    end: "bottom+=600 center",
                     markers: false,
-                    scrub: 1,
-                    id: "videoCt_1"
+                    scrub: 5,
+                    id: "loopTop_01"
                 },
-                yPercent: -100,
+                xPercent: -50
             });
-            gsap.to(".ct_2", {
+            gsap.to(".ct_1 .bot", {
                 scrollTrigger: {
-                    trigger: ".section--4",
+                    trigger: ".ct_1",
                     immediateRender: false,
-                    start: "200 top",
-                    end: "2400 top",
+                    start: "top-=600 center",
+                    end: "bottom+=600 center",
                     markers: false,
-                    scrub: 1,
-                    id: "videoCt_2"
+                    scrub: 5,
+                    id: "loopBot_01"
                 },
-                yPercent: -200,
-            });
-            gsap.to(".ct_3", {
-                scrollTrigger: {
-                    trigger: ".section--4",
-                    immediateRender: false,
-                    start: "1000 top",
-                    end: "2600 top",
-                    markers: false,
-                    scrub: 1,
-                    id: "videoCt_3"
-                },
-                yPercent: -100,
+                xPercent: -50
             });
 
+            gsap.from(".ct_2 .top", {
+                scrollTrigger: {
+                    trigger: ".ct_2",
+                    immediateRender: false,
+                    start: "top-=600 center",
+                    end: "bottom+=600 center",
+                    markers: false,
+                    scrub: 5,
+                    id: "loopTop_02"
+                },
+                xPercent: -50
+            });
+            gsap.to(".ct_2 .bot", {
+                scrollTrigger: {
+                    trigger: ".ct_2",
+                    immediateRender: false,
+                    start: "top-=600 center",
+                    end: "bottom+=600 center",
+                    markers: false,
+                    scrub: 5,
+                    id: "loopBot_02"
+                },
+                xPercent: -50
+            });
+
+            gsap.from(".ct_3 .top", {
+                scrollTrigger: {
+                    trigger: ".ct_3",
+                    immediateRender: false,
+                    start: "top-=600 center",
+                    end: "bottom+=600 center",
+                    markers: false,
+                    scrub: 5,
+                    id: "loopTop_03"
+                },
+                xPercent: -50
+            });
+            gsap.to(".ct_3 .bot", {
+                scrollTrigger: {
+                    trigger: ".ct_3",
+                    immediateRender: false,
+                    start: "top-=600 center",
+                    end: "bottom+=600 center",
+                    markers: false,
+                    scrub: 5,
+                    id: "loopBot_03"
+                },
+                xPercent: -50
+            });
             
             ScrollTrigger.refresh()
         })
@@ -202,3 +224,4 @@ export default function Gsap() {
     
     return null
 }
+
